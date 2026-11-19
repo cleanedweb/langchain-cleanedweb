@@ -1,0 +1,62 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "langchain-cleanedweb"
+version = "0.1.0"
+description = "LangChain tools and toolkit for CleanedWeb: find, read and run maintained REST APIs that return structured records from public websites."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "CleanedWeb" }]
+keywords = ["langchain", "cleanedweb", "tools", "agents", "web data", "scraping"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Typing :: Typed",
+]
+# `cleanedweb` is not on PyPI yet: install it from ../cleanedweb-python (see README) until it is.
+dependencies = ["langchain-core>=1.0,<2", "cleanedweb>=0.1.0,<1"]
+
+[project.urls]
+Homepage = "https://cleanedweb.com/?utm_source=github&utm_medium=langchain-cleanedweb"
+Documentation = "https://cleanedweb.com/docs/python/?utm_source=github&utm_medium=langchain-cleanedweb"
+Repository = "https://github.com/cleanedweb/langchain-cleanedweb"
+
+[project.optional-dependencies]
+test = ["pytest>=8", "pytest-asyncio>=0.23", "respx>=0.21", "langchain-tests>=1.0"]
+lint = ["ruff>=0.5", "mypy>=1.10"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["langchain_cleanedweb"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "W", "D"]
+ignore = ["D100", "D104", "D105", "D107", "D203", "D213", "D205", "D415", "UP006", "UP007", "UP035", "UP045", "B904"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["D"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+plugins = ["pydantic.mypy"]
+files = ["langchain_cleanedweb"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests/unit_tests"]
+markers = ["live: calls the public no-key catalog read endpoints (network); run with -m live"]
+addopts = "-m 'not live'"
