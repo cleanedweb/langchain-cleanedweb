@@ -15,9 +15,8 @@ Runs are charged per record delivered.
 pip install -U langchain-cleanedweb
 ```
 
-> This repository is private and the packages are not on PyPI yet. Until they are, install the client
-> from its checkout first: `pip install -e ../cleanedweb-python` (or
-> `pip install git+https://github.com/cleanedweb/cleanedweb-python`), then `pip install -e .` here.
+> Not on PyPI yet. Until it is, install from GitHub:
+> `pip install git+https://github.com/cleanedweb/cleanedweb-python git+https://github.com/cleanedweb/langchain-cleanedweb`.
 > `langchain-cleanedweb` depends on [`cleanedweb`](https://github.com/cleanedweb/cleanedweb-python).
 
 Create an API key with the `run` scope in the [console](https://app.cleanedweb.com/) and export it as
