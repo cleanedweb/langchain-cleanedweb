@@ -52,7 +52,7 @@ class CleanedWebBaseTool(BaseTool):
         "Not needed to find or read APIs.",
     )
     base_url: Optional[str] = Field(
-        default=None, description="Run origin override; defaults to https://broker.cleanedweb.com."
+        default=None, description="Run origin override; defaults to https://api.cleanedweb.com."
     )
     client: Optional[CleanedWeb] = Field(
         default=None, exclude=True, description="A configured cleanedweb.CleanedWeb client to use."
