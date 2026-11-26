@@ -1,4 +1,8 @@
+<p align="center"><img src="https://cleanedweb.com/assets/logo.png" width="72" alt="CleanedWeb"></p>
+
 # langchain-cleanedweb
+
+[![PyPI](https://img.shields.io/pypi/v/langchain-cleanedweb)](https://pypi.org/project/langchain-cleanedweb/) [![CI](https://github.com/cleanedweb/langchain-cleanedweb/actions/workflows/ci.yml/badge.svg)](https://github.com/cleanedweb/langchain-cleanedweb/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](https://github.com/cleanedweb/langchain-cleanedweb/blob/main/LICENSE)
 
 LangChain tools for [CleanedWeb](https://cleanedweb.com/?utm_source=github&utm_medium=langchain-cleanedweb),
 which turns public website collections (listings, products, jobs, articles, profiles) into maintained
