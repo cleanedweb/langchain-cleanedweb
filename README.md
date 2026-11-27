@@ -4,10 +4,19 @@
 
 [![PyPI](https://img.shields.io/pypi/v/langchain-cleanedweb)](https://pypi.org/project/langchain-cleanedweb/) [![CI](https://github.com/cleanedweb/langchain-cleanedweb/actions/workflows/ci.yml/badge.svg)](https://github.com/cleanedweb/langchain-cleanedweb/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](https://github.com/cleanedweb/langchain-cleanedweb/blob/main/LICENSE)
 
-LangChain tools for [CleanedWeb](https://cleanedweb.com/?utm_source=github&utm_medium=langchain-cleanedweb),
-which turns public website collections (listings, products, jobs, articles, profiles) into maintained
-REST APIs that return structured records. Three tools let an agent **find** a published API, **read** its
-contract, and **run** it, plus a toolkit that bundles them.
+<p align="center"><img src="https://raw.githubusercontent.com/cleanedweb/langchain-cleanedweb/main/docs/demo.gif" width="760" alt="Terminal: the LangChain find and run tools find the Steam Most Played Games API and print five live records"></p>
+<p align="center"><sub>A live run: the five most played Steam games right now, as five records.</sub></p>
+
+**Scrapers break whenever a site changes its pages.** CleanedWeb is a catalog of maintained REST APIs
+for public websites (listings, products, jobs, articles, profiles): you call an API and get structured
+records with known fields. When a site changes, CleanedWeb rebuilds its API.
+These are the LangChain tools for [CleanedWeb](https://cleanedweb.com/?utm_source=github&utm_medium=langchain-cleanedweb).
+
+- Three tools let an agent **find** a published API, **read** its contract, and **run** it; `CleanedWebToolkit` bundles them.
+- Finding and reading are free and need no key; only running is charged, per record.
+- Guard rails for agents: small `max_items` by default, a hard cap, and records marked as data, never instructions.
+- A slow run returns its idempotency key, so a retry reads the same run and is never charged twice.
+- Errors come back as short, actionable text for the model. `invoke` and `ainvoke` both work.
 
 **Pricing:** 5,000 records free once, then prepaid credit from $1 per 1,000 records, no subscription.
 Runs are charged per record delivered.
